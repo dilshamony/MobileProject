@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'mobile/base.html'%}
+{% block body_block %}
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{{mobile.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Product Name:{{mobile.product_name}}</h5><!--product_name is from models.py-->
+                <p class="card-text">Specifications:{{mobile.specifications}}</p>
+                <a href="{% url 'order' mobile.id %}" class="btn btn-primary">Buy Now</a>
+                <a href="{% url 'addtocart' mobile.id %}" class="btn btn-primary">Add To Cart</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+{% endblock %}

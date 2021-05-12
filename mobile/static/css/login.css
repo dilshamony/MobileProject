@@ -1,0 +1,28 @@
+body{
+background-color:#bff542;
+background: url('/static/images/img1.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+.main{
+height:400px;
+width:600px;
+position:relative;
+top:100px;
+left:1%;
+color:#e5ddd5;
+background-color:#000802;
+}
+.btn{
+width:70%;
+position:relative;
+left:2%;
+}
+h1{
+text-align:center;
+}
+.m2{
+position:relative;
+top:20px;
+}

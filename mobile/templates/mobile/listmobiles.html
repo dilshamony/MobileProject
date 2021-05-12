@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+
+{% extends 'mobile/base.html' %}
+{% block body_block %}
+
+
+{%if not request.user.is_superuser%}
+<div class="row">
+    {% for mobile in mobiles %}
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+  <img src="{{mobile.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{mobile.product_name}}</h5>
+    <p class="card-text">{{mobile.price}}</p>
+<!--    <a href="#" class="btn btn-primary">Buy Now</a>-->
+      <a href="{%url 'detail' mobile.id %}" class="btn btn-primary">View</a>
+<!--      <a href="{%url 'delete' mobile.id %}" class="btn btn-primary">Delete</a>-->
+<!--      <a href="{%url 'update' mobile.id %}" class="btn btn-primary">Update</a>-->
+
+  </div>
+</div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% if request.user.is_superuser %}
+<div class="mobilelist">
+    <h2>Mobiles List </h2>
+    <div>
+        <a href="{% url 'addproduct' %}" class="btn btn-outline-success ">Add New Product</a>
+        <a href="{% url 'base' %}" class="btn btn-outline-success ">HOME</a>
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="">
+                <table class="table" style="color:black" >
+                    <tr>
+                        <td class="table_head" style="color:red ">PRODUCT NAME</td>
+                        <td class="table_head" style="color:red ">PRICE</td>
+                        <td class="table_head" style="color:red ">SPECIFICATIONS</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% for mobile in mobiles %}
+                    <tr>
+                        <td> {{ mobile.product_name }} </td>
+                        <td>{{mobile.price}}</td>
+                        <td>{{mobile.specifications}}</td>
+                        <td><a href="{%url 'detail' mobile.id %}" class="btn btn-primary">View</a></td>
+                        <td><a href="{%url 'update' mobile.id %}" class="btn btn-success">Update</a></td>
+                        <td><a href="{%url 'delete' mobile.id %}" class="btn btn-danger">Delete</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+body{
+background-color:#e6e6e6;
+background: url('/static/images/img1.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+.main{
+background-color:#000802;
+color:white;
+height:450px;
+
+}
+.r1{
+position:relative;
+top:150px;
+}
+.sub{
+position:relative;
+left:30%;
+}
+h1{
+text-align:center;
+}
+.btn{
+position:relative;
+top:20px;
+left:6%;
+}
